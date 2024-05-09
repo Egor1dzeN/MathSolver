@@ -1,10 +1,12 @@
 import re
 
+import Polinom.Polinom
 import polinom
 from AVL import *
 from console import *
 from orderMap import *
-from Polinom.Polinom import polinom
+import Polinom.Polinom as a
+import Polinom.Monom as m
 
 
 def forTest():
@@ -12,6 +14,7 @@ def forTest():
     rt = None
     rt = Tree.insert(1, 10, rt)
     Tree.preorder(rt)
+
 
 def forTest2():
     map1 = orderMap()
@@ -23,27 +26,16 @@ def forTest2():
 
 
 if __name__ == '__main__':
-    # forTest2()
-    # p = polinom('12ffds^12a^1')
-    # print(p)
-    s = 'x+y+z'
-    from re import *
-    s = ' xdsa1+dsa('
-    res = re.match(r' ', s)
-    print(res.group())
-    s = s[res.end():]
-    res = re.match(r'(\w+)', s)
-    print(res.group())
-    s = s[res.end():]
-    res = re.match(r'[+-]*', s)
-    print(res.group())
-    s = s[res.end():]
-    res = re.match(r'(\w+)', s)
-    print(res.group())
-    s = s[res.end():]
-    res = re.match(r'[(]', s)
-    print(res.group())
-    s = s[res.end():]
+    a0 = a.polinom('x^2y^2')
+    a2 = a.polinom('x^2y^21')
+    # print(a0)
+    a1 = m.Monom(a0,'-')
+    a3 = m.Monom(a2, '+')
+    a11 = a1 + a3
+    print(a11)
+    # a2 = m.Monom(a.polinom('x^2y^2'))
+    # a2 = a.polinom('y^2x^2')
+    # print(a1 == a2)
     while True:
         choice_int = choice()
         match choice_int:

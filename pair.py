@@ -21,3 +21,7 @@ class Pair:
 
     def __str__(self) -> str:
         return f'Pair({self.first}, {self.second})'
+
+    def __eq__(self, other):
+        print('Eq pair')
+        return self.__first == other.first and self.second == other.second

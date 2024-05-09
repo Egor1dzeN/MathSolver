@@ -1,5 +1,5 @@
 import re
-
+from Solve import Lexer as l
 from orderMap import *
 from noOrderMap import *
 from hashMap import *
@@ -42,10 +42,17 @@ def solve_math(s: str):
             res = re.match(value, s)
             if res is not None:
                 s = s[res.end():]
-                print(f'{res.group()}, {s}, {len(s)}')
+                if key != 'space':
+                    print(f'{res.group()}, {s}, {len(s)}')
+                    list_polinom.append(res.group())
                 break
         if f:
             print('error!', s)
+    lexer = l.Lexer(list_polinom)
+
+
+def getHashMap():
+    return hash_map
 
 
 def input_monom():
