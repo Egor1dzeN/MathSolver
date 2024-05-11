@@ -21,15 +21,17 @@ def forTest2():
 
 
 if __name__ == '__main__':
-    pol1 = a.polinom('x^2')
-    pol2 = a.polinom('y^1')
-    pol3 = a.polinom('z^2')
-    mon1 = m.Monom(pol1)
-    mon2 = m.Monom(pol2)
-    mon3 = m.Monom(pol3)
-    mon4 = mon1 + mon2
-    mon5 = mon4 * mon3
-    print(mon5)
+    # pol1 = a.polinom('x^2')
+    # pol2 = a.polinom('y^1')
+    # pol3 = a.polinom('z^2')
+    # mon1 = m.Monom(pol1)
+    # mon2 = m.Monom(pol2)
+    # mon3 = m.Monom(pol3)
+    # mon4 = mon1 + mon2
+    # mon5 = mon4 * mon3
+    # print(mon5)
+    res = re.match('[(]', '(a+b)')
+    print(res.group())
     # a2 = m.Monom(a.polinom('x^2y^2'))
     # a2 = a.polinom('y^2x^2')
     # print(a1 == a2)

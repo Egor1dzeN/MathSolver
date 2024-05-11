@@ -1,10 +1,11 @@
 import re
-from Solve import Lexer as l
+from Solve.Lexer import Lexer
 from Tables.orderMap import orderMap
 from Tables.noOrderMap import noOrderMap
 from Tables.hashMap import HashMap
 from AVL.AVL import AVL
 from Polinom.Polinom import polinom
+from pair import Pair
 
 order_map = orderMap()
 unorder_map = noOrderMap()
@@ -15,24 +16,26 @@ root = None
 list_polinom = []
 regex_map = {'space': r' ',
              'var': r'(\w+)',
-             'plus': r'[+]*',
-             'minus': r'[-]*',
-             'mul': r'[*]*',
-             'lpar': r'[(]',
-             'rpar': r'[)]',
+             'plus': r'[+]+',
+             'minus': r'[-]+',
+             'mul': r'[*]+',
+             'lpar': r'[(]+',
+             'rpar': r'[)]+',
              'end': r''}
 
 
 def input_in_data_structure(key, value):
     order_map.put(key, value)
     unorder_map.put(key, value)
+    print('input - ', key, value)
     hash_map.put(key, value)
     global root
-    root = avl_tree.insert(key, value, root)
+    # root = avl_tree.insert(key, value, root)
     # print(hash_map)
 
 
 def solve_math(s: str):
+    # Считываем строку запроса и переводим её в список токенов
     global regex_map
     while len(s) > 0:
         f = False
@@ -44,12 +47,13 @@ def solve_math(s: str):
             if res is not None:
                 s = s[res.end():]
                 if key != 'space':
-                    print(f'{res.group()}, {s}, {len(s)}')
-                    list_polinom.append(res.group())
+                    # print(f'asdad {res.group()}, {s}, {len(s)}, {value}')
+                    list_polinom.append(Pair(res.group(), key))
                 break
         if f:
             print('error!', s)
-    lexer = l.Lexer(list_polinom)
+    # отправляем строку в решение
+    lexer = Lexer(list_polinom)
 
 
 def getHashMap():

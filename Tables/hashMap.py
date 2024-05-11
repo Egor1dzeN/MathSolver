@@ -46,10 +46,10 @@ class HashMap:
                     node = pair.second
                     node = node.next
                     if node.key == key:
-                        return node.key
+                        return node.value
                     while node.hasNext():
                         if node.key == key:
-                            return node.key
+                            return node.value
                     return default
         return default
 
