@@ -1,4 +1,4 @@
-from noOrderMap import noOrderMap
+from Tables.noOrderMap import noOrderMap
 import bisect
 from pair import Pair
 

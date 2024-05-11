@@ -1,9 +1,9 @@
 import re
 from Solve import Lexer as l
-from Tables.orderMap import *
-from Tables.noOrderMap import *
-from Tables.hashMap import *
-from AVL.AVL import *
+from Tables.orderMap import orderMap
+from Tables.noOrderMap import noOrderMap
+from Tables.hashMap import HashMap
+from AVL.AVL import AVL
 from Polinom.Polinom import polinom
 
 order_map = orderMap()

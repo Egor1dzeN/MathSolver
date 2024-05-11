@@ -1,5 +1,5 @@
 from pair import Pair
-from node import Node
+from Tables.node import Node
 
 
 def hash(index) -> int:
