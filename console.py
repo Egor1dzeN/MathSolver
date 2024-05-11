@@ -12,6 +12,8 @@ unorder_map = noOrderMap()
 hash_map = HashMap()
 avl_tree = AVL()
 root = None
+hash_map.put('a', polinom('x^2'))
+hash_map.put('b', polinom('x^2'))
 
 list_polinom = []
 regex_map = {'space': r' ',
