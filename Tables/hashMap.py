@@ -77,14 +77,14 @@ class HashMap:
             self.hashlist.append(Pair(hash(key), root))
 
     def __str__(self):
-        res = 'Hash  |  Linked list'
+        res = 'Hash  |  Linked list\n'
 
         for pair in self.hashlist:
             res += str(pair.first) + ' -- '
             root = pair.second
             while root.hasNext():
-                res += f'[{root.key}, {root.key}] -> '
+                res += f'[{root.key}, {root.value}] -> '
                 root = root.next
-            res += f'[{root.key}, {root.key}]'
+            res += f'[{root.key}, {root.value}]'
             res += '\n'
         return res

@@ -1,9 +1,10 @@
 import re
 from Solve import Lexer as l
-from orderMap import *
-from noOrderMap import *
-from hashMap import *
-from AVL import *
+from Tables.orderMap import *
+from Tables.noOrderMap import *
+from Tables.hashMap import *
+from AVL.AVL import *
+from Polinom.Polinom import polinom
 
 order_map = orderMap()
 unorder_map = noOrderMap()
@@ -66,7 +67,8 @@ def input_polinom():
     key = input()
     print('Введите полином: ', end=' ')
     polinom_string = input()
-    input_in_data_structure(key, polinom_string)
+    print(polinom(polinom_string))
+    input_in_data_structure(key, polinom(polinom_string))
 
 
 def choice():

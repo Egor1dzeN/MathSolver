@@ -1,6 +1,8 @@
 from pair import *
 import bisect
+
 type Vector = polinom
+
 
 class polinom:
     def __init__(self, s: str):
@@ -70,3 +72,17 @@ class polinom:
         # print(self.__variable)
         # print(other.__variable)
         return self.variable == other.variable
+
+    def __mul__(self, other):
+        self.const *= other.const
+        for i in range(len(self.variable)):
+            for j in range(len(other.variable)):
+                if self.variable[i].first == other.variable[j].first:
+                    self.variable[i].second += other.variable[j].second
+                    other.variable.pop(j)
+                    break
+        for pair in other.variable:
+            self.variable.append(pair)
+        self.variable = sorted(self.variable, key=lambda x: x.first)
+        # print(self)
+        return self

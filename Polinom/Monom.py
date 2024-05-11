@@ -47,8 +47,57 @@ class Monom:
                     other.list_operator.pop(j)
 
                     break
-        print('ghfd', other.list_polinom)
+        # print('ghfd', other.list_polinom)
         for i in range(len(other.list_polinom)):
             self.list_polinom.append(other.list_polinom[i])
             self.list_operator.append(other.list_operator[i])
-        print(self)
+        # print(self)
+        return self
+
+    def __sub__(self, other):
+        for i in range(len(self.list_polinom)):
+            cur_polinom = self.list_polinom[i]
+            for j in range(len(other.list_polinom)):
+                cur_polinom2 = other.list_polinom[j]
+                # print(type(cur_polinom2))
+                if cur_polinom == cur_polinom2:
+                    # pass
+                    if (self.list_operator[i] == other.list_operator[j] == '+'
+                            or
+                            self.list_operator[i] == other.list_operator[j] == '-'):
+                        cur_polinom.const -= cur_polinom2.const
+                    elif (self.list_operator[i] == '+' and other.list_operator[j] == '-'
+                          or
+                          self.list_operator[i] == '-' and other.list_operator[j] == '+'):
+                        cur_polinom.const += cur_polinom2.const
+                    if cur_polinom.const == 0:
+                        self.list_polinom.remove(cur_polinom)
+                        self.list_operator.pop(i)
+                    other.list_polinom.remove(cur_polinom2)
+                    other.list_operator.pop(j)
+
+                    break
+        # print('ghfd', other.list_polinom)
+        for i in range(len(other.list_polinom)):
+            self.list_polinom.append(other.list_polinom[i])
+            # print('ghsdga', other.list_operator[i], '-' if other.list_operator[i] == '+' else '-')
+            self.list_operator.append('-' if other.list_operator[i] == '+' else '+')
+            # char oper =
+        # print(self)
+        return self
+
+    def __mul__(self, other):
+        for i in range(len(self.list_polinom)):
+            for j in range(len(other.list_polinom)):
+                # print(self.list_polinom[i])
+                self.list_polinom[i] = self.list_polinom[i] * other.list_polinom[j]
+                # print(self.list_polinom[i])
+                if self.list_operator[i] == other.list_operator[j] == '+':
+                    pass
+                if self.list_operator[i] == '+' and other.list_operator[j] == '-':
+                    self.list_operator[i] = '-'
+                if self.list_operator[i] == '-' and other.list_operator[j] == '+':
+                    self.list_operator[i] = '-'
+                if self.list_operator[i] == '-' and other.list_operator[j] == '-':
+                    self.list_operator[i] = '+'
+        return self

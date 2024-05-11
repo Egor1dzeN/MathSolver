@@ -1,10 +1,5 @@
-import re
-
-import Polinom.Polinom
-import polinom
-from AVL import *
 from console import *
-from orderMap import *
+from Tables.orderMap import *
 import Polinom.Polinom as a
 import Polinom.Monom as m
 
@@ -26,13 +21,15 @@ def forTest2():
 
 
 if __name__ == '__main__':
-    a0 = a.polinom('x^2y^2')
-    a2 = a.polinom('x^2y^21')
-    # print(a0)
-    a1 = m.Monom(a0,'-')
-    a3 = m.Monom(a2, '+')
-    a11 = a1 + a3
-    print(a11)
+    pol1 = a.polinom('x^2')
+    pol2 = a.polinom('y^1')
+    pol3 = a.polinom('z^2')
+    mon1 = m.Monom(pol1)
+    mon2 = m.Monom(pol2)
+    mon3 = m.Monom(pol3)
+    mon4 = mon1 + mon2
+    mon5 = mon4 * mon3
+    print(mon5)
     # a2 = m.Monom(a.polinom('x^2y^2'))
     # a2 = a.polinom('y^2x^2')
     # print(a1 == a2)
