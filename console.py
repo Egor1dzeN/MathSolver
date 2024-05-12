@@ -56,8 +56,17 @@ def solve_math(s: str):
             print('error!', s)
     # отправляем строку в решение
     lexer = Lexer(list_polinom)
-
-
+    print('Что вы хотите сделать:')
+    print('1. Добавить новый полином в таблицу')
+    print('2. Назад')
+    choice = int(input())
+    match choice:
+        case 1:
+            print('Введите ключ к таблице - ', end='')
+            key = input()
+            hash_map.put(key, lexer.get_monom())
+        case _:
+            return
 def getHashMap():
     return hash_map
 

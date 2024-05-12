@@ -12,7 +12,9 @@ class Lexer:
         self.hash_table = console.hash_map
         self.list_monom = []
         self.list_operator = []
+        self.list_variable = set()
         self.solve()
+
         # self.debug_print()
         # print(self.hash_table)
 
@@ -79,9 +81,11 @@ class Lexer:
     @list_token.setter
     def list_token(self, list_token_):
         self.__list_token = list_token_
-
+    def get_monom(self):
+        return self.list_monom[0]
     def debug_print(self):
         # print('begin')
+        # print(len(self.list_monom))
         for i in range(len(self.list_monom)):
             print(self.list_monom[i])
         # print('<<<<<<<<<>>>>>>>>>')
