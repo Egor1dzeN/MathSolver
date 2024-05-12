@@ -20,8 +20,8 @@ class Monom:
     def __str__(self):
         res = ''
         for i in range(len(self.list_polinom)):
-            res += str(self.list_operator[i]) + '\n'
-            res += str(self.list_polinom[i]) + '\n'
+            res += str(self.list_operator[i])+' '
+            res += str(self.list_polinom[i]) + ' '
         return res
 
     def __add__(self, other: Vector):
@@ -29,7 +29,7 @@ class Monom:
             cur_polinom = self.list_polinom[i]
             for j in range(len(other.list_polinom)):
                 cur_polinom2 = other.list_polinom[j]
-                print(type(cur_polinom2))
+                # print(type(cur_polinom2))
                 if cur_polinom == cur_polinom2:
                     # pass
                     if (self.list_operator[i] == other.list_operator[j] == '+'

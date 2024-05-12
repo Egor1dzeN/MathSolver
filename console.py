@@ -29,7 +29,7 @@ regex_map = {'space': r' ',
 def input_in_data_structure(key, value):
     order_map.put(key, value)
     unorder_map.put(key, value)
-    print('input - ', key, value)
+    # print('input - ', key, value)
     hash_map.put(key, value)
     global root
     # root = avl_tree.insert(key, value, root)

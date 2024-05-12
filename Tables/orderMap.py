@@ -12,7 +12,6 @@ class orderMap(noOrderMap):
         super().__init__(map_)
 
     def put(self, index, value=0):
-        # пользуемся легальными читами по вставке элемента в отсортированный список (бинарная вставка)
         bisect.insort(self.no_order_map, Pair(index, value), key=lambda x: x.first)
         # super().put(index, value)
 

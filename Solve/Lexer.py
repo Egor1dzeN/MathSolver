@@ -70,7 +70,7 @@ class Lexer:
                 self.list_operator.pop(i)
             else:
                 i += 1
-            # self.debug_print()
+        self.debug_print()
 
     @property
     def list_token(self):
@@ -81,10 +81,10 @@ class Lexer:
         self.__list_token = list_token_
 
     def debug_print(self):
-        print('begin')
-        for monom in self.list_monom:
-            print(monom)
-        print('<<<<<<<<<>>>>>>>>>')
-        for oper in self.list_operator:
-            print(oper)
-        print('end')
+        # print('begin')
+        for i in range(len(self.list_monom)):
+            print(self.list_monom[i])
+        # print('<<<<<<<<<>>>>>>>>>')
+        # for oper in self.list_operator:
+        #     print(oper)
+        # print('end')

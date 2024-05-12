@@ -47,10 +47,10 @@ class polinom:
 
     def __str__(self):
         # print('Polinom')
-        res = f'{self.const}  '
+        res = f'{self.const}'
         for el in self.__variable:
-            res += f'(var={el.first}, pow={el.second}), '
-        return res[:len(res) - 2]
+            res += f'{el.first}^{el.second}'
+        return res
 
     @property
     def const(self):
